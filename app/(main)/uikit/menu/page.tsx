@@ -283,7 +283,7 @@ const MenuDemo = ({ children }: any) => {
         },
         {
             label: 'Options',
-            icon: 'pi pi-cog'
+            icon: 'pi pig'
         }
     ];
 

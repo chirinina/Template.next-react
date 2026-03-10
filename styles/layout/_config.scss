@@ -1,54 +1,59 @@
 .layout-config-button {
-    display: block;
     position: fixed;
-    width: 3rem;
-    height: 3rem;
-    line-height: 3rem;
-    background: var(--primary-color);
-    color: var(--primary-color-text);
-    text-align: center;
     top: 50%;
     right: 0;
-    margin-top: -1.5rem;
+    transform: translateY(-50%);
+
+    width: 3rem;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-color);
+    color: var(--primary-color-text);
+
+    border: none;
     border-top-left-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    transition: background-color var(--transition-duration);
-    overflow: hidden;
+
     cursor: pointer;
     z-index: 999;
-    box-shadow: -.25rem 0 1rem rgba(0,0,0,.15);
 
-
-    &.config-link {
-        font-size: 1rem;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        border: none;
-      }
-      .config-link:focus {
-        outline: 0 none;
-        outline-offset: 0;
-        box-shadow: 0 0 0 1px var(--focus-ring);
-      }
-
-    i {
-        font-size: 2rem;
-        line-height: inherit;
-        transform: rotate(0deg);
-        transition: transform 1s;
-    }
-
-    &:hover {
-        background: var(--primary-400);
-    }
+    box-shadow:
+        -4px 0 12px rgba(0,0,0,0.15),
+        -1px 0 4px rgba(0,0,0,0.08);
+    transition: background 0.25s ease;
 }
 
-.layout-config-sidebar {
-    &.p-sidebar {
-        .p-sidebar-content {
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-    }
-} 
+/* Icono */
+.layout-config-button i {
+    font-size: 1.6rem;
+    line-height: 1;
+    transition: transform 0.8s ease;
+}
+
+/* Solo gira el icono */
+.layout-config-button:hover i {
+    transform: rotate(180deg);
+}
+
+/* Variante link */
+.layout-config-button.config-link {
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Accesibilidad */
+.layout-config-button.config-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--focus-ring);
+}
+
+/* Sidebar */
+.layout-config-sidebar.p-sidebar .p-sidebar-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}

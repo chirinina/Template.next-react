@@ -43,10 +43,10 @@ const Documentation = () => {
                         <p>Dependencies of Diolay are listed below and needs to be defined at package.json.</p>
 
                         <pre className="app-code">
-                            <code>{`"primereact": "^9.6.2",                    //required: PrimeReact components
-"primeicons": "^6.0.1",                    //required: Icons
-"primeflex": "^3.3.0",                     //required: Utility CSS classes
-`}</code>
+                            <code>{`"primereact": "^9.6.2",            //required: PrimeReact components
+                            "primeicons": "^6.0.1",                    //required: Icons
+                            "primeflex": "^3.3.0",                     //required: Utility CSS classes
+                            `}</code>
                         </pre>
 
                         <h5>Structure</h5>
@@ -89,37 +89,36 @@ const Documentation = () => {
                         <pre className="app-code">
                             <code>
                                 {`"use client"
-import { LayoutProvider } from "./layout/context/layoutcontext";
-import { PrimeReactProvider } from "primereact/api";
-import "primereact/resources/primereact.css";
-...
-import "../styles/layout/layout.scss";
-import "../styles/demo/Demos.scss";
+                        import { LayoutProvider } from "./layout/context/layoutcontext";
+                        import { PrimeReactProvider } from "primereact/api";
+                        import "primereact/resources/primereact.css";
+                        ...
+                        import "../styles/layout/layout.scss";
+                        import "../styles/demo/Demos.scss";
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
+                        interface RootLayoutProps {
+                        children: React.ReactNode;
+                        }
 
-export default function RootLayout({ children }: RootLayoutProps) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          id="theme-css"
-          href={\`/themes/lara-light-indigo/theme.css\`}
-          rel="stylesheet"
-        ></link>
-      </head>
-      <body>
-        <PrimeReactProvider>
-            <LayoutProvider>{children}</LayoutProvider>
-        </PrimeReactProvider>
-      </body>
-    </html>
-  );
-}
-
-`}
+                        export default function RootLayout({ children }: RootLayoutProps) {
+                        return (
+                            <html lang="en" suppressHydrationWarning>
+                            <head>
+                                <link
+                                id="theme-css"
+                                href={\`/themes/lara-light-indigo/theme.css\`}
+                                rel="stylesheet"
+                                ></link>
+                            </head>
+                            <body>
+                                <PrimeReactProvider>
+                                    <LayoutProvider>{children}</LayoutProvider>
+                                </PrimeReactProvider>
+                            </body>
+                            </html>
+                        );
+                        }
+                        `}
                             </code>
                         </pre>
                         <p>
@@ -129,21 +128,21 @@ export default function RootLayout({ children }: RootLayoutProps) {
                         <pre className="app-code">
                             <code>
                                 {`import { Metadata } from 'next';
-import Layout from "../../layout/layout";
+                                import Layout from "../../layout/layout";
 
-interface MainLayoutProps {
-  children: React.ReactNode;
-}
+                                interface MainLayoutProps {
+                                children: React.ReactNode;
+                                }
 
-export const metadata: Metadata = {
-    title: "Diolay by PrimeReact | Free Admin Template for Next.js",
-    ...
-  };
+                                export const metadata: Metadata = {
+                                    title: "Diolay by PrimeReact | Free Admin Template for Next.js",
+                                    ...
+                                };
 
-export default function MainLayout({ children }: MainLayoutProps) {
-  return <Layout>{children}</Layout>;
-}
-`}
+                                export default function MainLayout({ children }: MainLayoutProps) {
+                                return <Layout>{children}</Layout>;
+                                }
+                                `}
                             </code>
                         </pre>
                         <p>
@@ -153,27 +152,27 @@ export default function MainLayout({ children }: MainLayoutProps) {
                         <pre className="app-code">
                             <code>
                                 {`import { Metadata } from 'next';
-import AppConfig from "../../layout/AppConfig";
-import React from "react";
+                                import AppConfig from "../../layout/AppConfig";
+                                import React from "react";
 
-interface FullPageLayoutProps {
-  children: React.ReactNode;
-}
+                                interface FullPageLayoutProps {
+                                children: React.ReactNode;
+                                }
 
-export const metadata: Metadata = {
-    title: "Diolay by PrimeReact | Free Admin Template for Next.js",
-    ...
-  };
+                                export const metadata: Metadata = {
+                                    title: "Diolay by PrimeReact | Free Admin Template for Next.js",
+                                    ...
+                                };
 
-export default function FullPageLayout({ children }: FullPageLayoutProps) {
-  return (
-    <React.Fragment>
-      {children}
-      <AppConfig minimal />
-    </React.Fragment>
-  );
-}
-`}
+                                export default function FullPageLayout({ children }: FullPageLayoutProps) {
+                                return (
+                                    <React.Fragment>
+                                    {children}
+                                    <AppConfig minimal />
+                                    </React.Fragment>
+                                );
+                                }
+                                `}
                             </code>
                         </pre>
                         <h5>Default Configuration</h5>
@@ -184,20 +183,20 @@ export default function FullPageLayout({ children }: FullPageLayoutProps) {
                         <pre className="app-code">
                             <code>
                                 {`"use client";
-import React, { useState } from 'react';
-import Head from 'next/head';
-export const LayoutContext = React.createContext();
+                                import React, { useState } from 'react';
+                                import Head from 'next/head';
+                                export const LayoutContext = React.createContext();
 
-export const LayoutProvider = (props) => {
-    const [layoutConfig, setLayoutConfig] = useState({
-        ripple: false,                          //toggles ripple on and off
-        inputStyle: 'outlined',                 //default style for input elements
-        menuMode: 'static',                     //layout mode of the menu, valid values are "static" or "overlay"
-        colorScheme: 'light',                   //color scheme of the template, valid values are "light", "dim" and "dark"
-        theme: 'lara-light-indigo',             //default component theme for PrimeReact
-        scale: 14                               //size of the body font size to scale the whole application
-    });
-}`}
+                                export const LayoutProvider = (props) => {
+                                    const [layoutConfig, setLayoutConfig] = useState({
+                                        ripple: false,                          //toggles ripple on and off
+                                        inputStyle: 'outlined',                 //default style for input elements
+                                        menuMode: 'static',                     //layout mode of the menu, valid values are "static" or "overlay"
+                                        colorScheme: 'light',                   //color scheme of the template, valid values are "light", "dim" and "dark"
+                                        theme: 'lara-light-indigo',             //default component theme for PrimeReact
+                                        scale: 14                               //size of the body font size to scale the whole application
+                                    });
+                                }`}
                             </code>
                         </pre>
 
@@ -224,11 +223,11 @@ export const LayoutProvider = (props) => {
                         <pre className="app-code" lang="scss">
                             <code>
                                 {`
-/* General */
-$scale:14px;                    /* initial font size */
-$borderRadius:12px;             /* border radius of layout element e.g. card, sidebar */
-$transitionDuration:.2s;        /* transition duration of layout elements e.g. sidebar */
-`}
+                                /* General */
+                                $scale:14px;                    /* initial font size */
+                                $borderRadius:12px;             /* border radius of layout element e.g. card, sidebar */
+                                $transitionDuration:.2s;        /* transition duration of layout elements e.g. sidebar */
+                                `}
                             </code>
                         </pre>
                     </div>

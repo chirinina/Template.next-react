@@ -28,7 +28,7 @@ const BlockViewer = (props: BlockViewerProps) => {
                     <span className="block-title">
                         <span>{props.header}</span>
                         {props.new && <span className="badge-new">New</span>}
-                        {props.free && <span className="badge-free">Free</span>}
+                        {props.free && <span className="badge-free">Pro</span>}
                     </span>
                     <div className="block-actions">
                         <button tabIndex={0} className={classNames('p-link', { 'block-action-active': blockView === 'PREVIEW' })} onClick={() => setBlockView('PREVIEW')}>

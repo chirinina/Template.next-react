@@ -83,7 +83,7 @@ const Crud = () => {
                 _products[index] = _product;
                 toast.current?.show({
                     severity: 'success',
-                    summary: 'Successful',
+                    summary: 'Exitoso',
                     detail: 'Product Updated',
                     life: 3000
                 });
@@ -93,7 +93,7 @@ const Crud = () => {
                 _products.push(_product);
                 toast.current?.show({
                     severity: 'success',
-                    summary: 'Successful',
+                    summary: 'Exitoso',
                     detail: 'Product Created',
                     life: 3000
                 });
@@ -122,7 +122,7 @@ const Crud = () => {
         setProduct(emptyProduct);
         toast.current?.show({
             severity: 'success',
-            summary: 'Successful',
+            summary: 'Exitoso',
             detail: 'Product Deleted',
             life: 3000
         });
@@ -164,8 +164,8 @@ const Crud = () => {
         setSelectedProducts(null);
         toast.current?.show({
             severity: 'success',
-            summary: 'Successful',
-            detail: 'Products Deleted',
+            summary: 'Exitoso',
+            detail: 'Producto Eliminado',
             life: 3000
         });
     };
@@ -196,8 +196,8 @@ const Crud = () => {
         return (
             <React.Fragment>
                 <div className="my-2">
-                    <Button label="New Product" icon="pi pi-plus" severity="success" className=" mr-2" onClick={openNew} />
-                    <Button label="Delete" icon="pi pi-trash" severity="danger" onClick={confirmDeleteSelected} disabled={!selectedProducts || !(selectedProducts as any).length} />
+                    <Button label="Nuevo Producto" icon="pi pi-plus" className=" mr-2" onClick={openNew} />
+                    <Button label="Eliminar" icon="pi pi-trash" severity="danger" onClick={confirmDeleteSelected} disabled={!selectedProducts || !(selectedProducts as any).length} />
                 </div>
             </React.Fragment>
         );

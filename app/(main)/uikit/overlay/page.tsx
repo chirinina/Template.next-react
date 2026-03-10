@@ -155,7 +155,7 @@ const OverlayDemo = () => {
                 <div className="col-12 lg:col-6">
                     <div className="card">
                         <h5>Confirmation</h5>
-                        <Button label="Delete" icon="pi pi-trash" severity="danger" onClick={() => setDisplayConfirmation(true)} />
+                        <Button label="Eliminar" icon="pi pi-trash" severity="danger" onClick={() => setDisplayConfirmation(true)} />
                         <Dialog header="Confirmation" visible={displayConfirmation} onHide={() => setDisplayConfirmation(false)} style={{ width: '350px' }} modal footer={confirmationDialogFooter}>
                             <div className="flex align-items-center justify-content-center">
                                 <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />

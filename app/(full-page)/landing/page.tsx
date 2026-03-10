@@ -407,7 +407,7 @@ const LandingPage = () => {
                     <div className="grid justify-content-between mt-8 md:mt-0">
                         <div className="col-12 lg:col-4 p-0 md:p-3">
                             <div className="p-3 flex flex-column border-200 pricing-card cursor-pointer border-2 hover:border-primary transition-duration-300 transition-all">
-                                <h3 className="text-900 text-center my-5">Free</h3>
+                                <h3 className="text-900 text-center my-5">Pro</h3>
                                 <img src="/demo/images/landing/free.svg" className="w-10 h-10 mx-auto" alt="free" />
                                 <div className="my-5 text-center">
                                     <span className="text-5xl font-bold mr-2 text-900">$0</span>
@@ -430,7 +430,7 @@ const LandingPage = () => {
                                     </li>
                                     <li className="py-2">
                                         <i className="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                                        <span className="text-xl line-height-3">Free Shipping</span>
+                                        <span className="text-xl line-height-3">Pro Shipping</span>
                                     </li>
                                 </ul>
                             </div>
@@ -461,7 +461,7 @@ const LandingPage = () => {
                                     </li>
                                     <li className="py-2">
                                         <i className="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                                        <span className="text-xl line-height-3">Free Shipping</span>
+                                        <span className="text-xl line-height-3">Pro Shipping</span>
                                     </li>
                                 </ul>
                             </div>
@@ -492,7 +492,7 @@ const LandingPage = () => {
                                     </li>
                                     <li className="py-2">
                                         <i className="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                                        <span className="text-xl line-height-3">Free Shipping</span>
+                                        <span className="text-xl line-height-3">Pro Shipping</span>
                                     </li>
                                 </ul>
                             </div>

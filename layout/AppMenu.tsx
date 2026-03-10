@@ -12,8 +12,14 @@ const AppMenu = () => {
 
     const model: AppMenuItem[] = [
         {
-            label: 'Home',
+            label: 'Inicio',
             items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
+        },
+        {
+            label: 'Administracion',
+            items: [
+                { label: 'Registro', icon: 'pi pi-fw pi-pencil', to: '/pages/crud'},
+            ]
         },
         {
             label: 'UI Components',
