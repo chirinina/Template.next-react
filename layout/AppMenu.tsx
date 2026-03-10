@@ -18,7 +18,7 @@ const AppMenu = () => {
         {
             label: 'Administracion',
             items: [
-                { label: 'Registro', icon: 'pi pi-fw pi-pencil', to: '/pages/crud'},
+                { label: 'Registro', icon: 'pi pi-fw pi-send', to: '/pages/crud'},
             ]
         },
         {
