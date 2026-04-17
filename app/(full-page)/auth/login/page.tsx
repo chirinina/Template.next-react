@@ -20,7 +20,6 @@ const LoginPage = () => {
     return (
         <div className={containerClassName}>
             <div className="flex flex-column align-items-center justify-content-center">
-                <img src={`/layout/images/logo-${layoutConfig.colorScheme === 'light' ? 'dark' : 'white'}.svg`} alt="Diolay logo" className="mb-5 w-6rem flex-shrink-0" />
                 <div
                     style={{
                         borderRadius: '56px',
@@ -30,16 +29,18 @@ const LoginPage = () => {
                 >
                     <div className="w-full surface-card py-8 px-5 sm:px-8" style={{ borderRadius: '53px' }}>
                         <div className="text-center mb-5">
-                            <img src="/demo/images/login/avatar.png" alt="Image" height="50" className="mb-3" />
-                            <div className="text-900 text-3xl font-medium mb-3">Bienvenido¡</div>
-                            <span className="text-600 font-medium">Inicia sesion para continuar</span>
+                            <span className="font-bold text-2xl">
+                                <span className="text-primary">Dio</span>lay
+                            </span>
+                            <div className="text-900 text-3xl font-medium mb-3 mt-3">Bienvenido de nuevo</div>
+                            <span className="text-600 font-medium">Inicia sesión para entrar a tu panel y continuar trabajando.</span>
                         </div>
 
                         <div>
                             <label htmlFor="email1" className="block text-900 text-xl font-medium mb-2">
-                                Correo Electronico
+                                Correo electrónico
                             </label>
-                            <InputText id="email1" type="text" placeholder="Direccion de Correo Electronico" className="w-full md:w-30rem mb-5" style={{ padding: '1rem' }} />
+                            <InputText id="email1" type="text" placeholder="tu@correo.com" className="w-full md:w-30rem mb-5" style={{ padding: '1rem' }} />
 
                             <label htmlFor="password1" className="block text-900 font-medium text-xl mb-2">
                                 Contraseña
@@ -52,10 +53,10 @@ const LoginPage = () => {
                                     <label htmlFor="rememberme1">Recordarme</label>
                                 </div>
                                 <a className="font-medium no-underline ml-2 text-right cursor-pointer" style={{ color: 'var(--primary-color)' }}>
-                                    ¿Olvidaste tu contraseña?
+                                    ¿Olvidaste la contraseña?
                                 </a>
                             </div>
-                            <Button label="Iniciar sesion" className="w-full p-3 text-xl" onClick={() => router.push('/')}></Button>
+                            <Button label="Entrar a Diolay" className="w-full p-3 text-xl" onClick={() => router.push('/')}></Button>
                         </div>
                     </div>
                 </div>

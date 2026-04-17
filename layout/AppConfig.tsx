@@ -14,6 +14,10 @@ const AppConfig = (props: AppConfigProps) => {
     const [scales] = useState([12, 13, 14, 15, 16]);
     const { layoutConfig, setLayoutConfig, layoutState, setLayoutState } = useContext(LayoutContext);
     const { setRipple, changeTheme } = useContext(PrimeReactContext);
+    const themeButtonClass = (theme: string) =>
+        classNames('p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2 transition-all transition-duration-150', {
+            'ring-2 ring-primary': layoutConfig.theme === theme
+        });
 
     const onConfigButtonClick = () => {
         setLayoutState((prevState: LayoutState) => ({ ...prevState, configSidebarVisible: true }));
@@ -68,7 +72,7 @@ const AppConfig = (props: AppConfigProps) => {
             <Sidebar visible={layoutState.configSidebarVisible} onHide={onConfigSidebarHide} position="right" className="layout-config-sidebar w-20rem">
                 {!props.simple && (
                     <>
-                        <h6>Escala</h6>
+                        <h6 className="flex align-items-center gap-2"><i className="pi pi-search-plus"></i><span>Escala</span></h6>
                         <div className="flex align-items-center">
                             <Button icon="pi pi-minus" type="button" onClick={decrementScale} rounded text className="w-2rem h-2rem mr-2" disabled={layoutConfig.scale === scales[0]}></Button>
                             <div className="flex gap-2 align-items-center">
@@ -79,11 +83,11 @@ const AppConfig = (props: AppConfigProps) => {
                             <Button icon="pi pi-plus" type="button" onClick={incrementScale} rounded text className="w-2rem h-2rem ml-2" disabled={layoutConfig.scale === scales[scales.length - 1]}></Button>
                         </div>
 
-                        <h6>Tipo Menu</h6>
+                        <h6 className="flex align-items-center gap-2"><i className="pi pi-bars"></i><span>Tipo de menú</span></h6>
                         <div className="flex">
                             <div className="field-radiobutton flex-1">
                                 <RadioButton name="menuMode" value={'static'} checked={layoutConfig.menuMode === 'static'} onChange={(e) => changeMenuMode(e)} inputId="mode1"></RadioButton>
-                                <label htmlFor="mode1">Estatico</label>
+                                <label htmlFor="mode1">Estático</label>
                             </div>
                             <div className="field-radiobutton flex-1">
                                 <RadioButton name="menuMode" value={'overlay'} checked={layoutConfig.menuMode === 'overlay'} onChange={(e) => changeMenuMode(e)} inputId="mode2"></RadioButton>
@@ -91,155 +95,152 @@ const AppConfig = (props: AppConfigProps) => {
                             </div>
                         </div>
 
-                        <h6>Estilo de Formularios</h6>
+                        <h6 className="flex align-items-center gap-2"><i className="pi pi-pencil"></i><span>Estilo de formularios</span></h6>
                         <div className="flex">
                             <div className="field-radiobutton flex-1">
                                 <RadioButton name="inputStyle" value={'outlined'} checked={layoutConfig.inputStyle === 'outlined'} onChange={(e) => changeInputStyle(e)} inputId="outlined_input"></RadioButton>
-                                <label htmlFor="outlined_input">Limpio</label>
+                                <label htmlFor="outlined_input">Contorno</label>
                             </div>
                             <div className="field-radiobutton flex-1">
                                 <RadioButton name="inputStyle" value={'filled'} checked={layoutConfig.inputStyle === 'filled'} onChange={(e) => changeInputStyle(e)} inputId="filled_input"></RadioButton>
-                                <label htmlFor="filled_input">Transparente</label>
+                                <label htmlFor="filled_input">Relleno</label>
                             </div>
                         </div>
 
-                        <h6>Animaciones</h6>
+                        <h6 className="flex align-items-center gap-2"><i className="pi pi-bolt"></i><span>Animaciones</span></h6>
                         <InputSwitch checked={layoutConfig.ripple as boolean} onChange={(e) => changeRipple(e)}></InputSwitch>
                     </>
                 )}
-                <h6>Paletas Unicos</h6>
+                <h6 className="flex align-items-center gap-2"><i className="pi pi-palette"></i><span>Paletas únicas</span></h6>
                 <div className="grid">
-                {/* Sección de temas claros */}
                 <div className="col-12 mb-2">
                     <div className="grid">
                     <div className="col-3">
                     <button
-                        className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                        className={themeButtonClass('lara-light-indigo')}
                         onClick={() => _changeTheme('lara-light-indigo', 'light')}
                         style={{ background: 'linear-gradient(to right, #5A5AE6 50%, white 50%)' }}
                     >
-                        <i className="pi pi-palette" style={{ color: 'black', fontSize: '1rem' }}></i>
+                        <i className="pi pi-sun" style={{ color: 'black', fontSize: '1rem' }}></i>
                     </button>
                 </div>
 
                 <div className="col-3">
                     <button
-                        className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                        className={themeButtonClass('lara-light-blue')}
                         onClick={() => _changeTheme('lara-light-blue', 'light')}
                         style={{ background: 'linear-gradient(to right, #3A9AD9 50%, white 50%)' }}
                     >
-                        <i className="pi pi-palette" style={{ color: 'black', fontSize: '1rem' }}></i>
+                        <i className="pi pi-sun" style={{ color: 'black', fontSize: '1rem' }}></i>
                     </button>
                 </div>
 
                 <div className="col-3">
                     <button
-                        className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                        className={themeButtonClass('lara-light-purple')}
                         onClick={() => _changeTheme('lara-light-purple', 'light')}
                         style={{ background: 'linear-gradient(to right, #883CAE 50%, white 50%)' }}
                     >
-                        <i className="pi pi-palette" style={{ color: 'black', fontSize: '1rem' }}></i>
+                        <i className="pi pi-sun" style={{ color: 'black', fontSize: '1rem' }}></i>
                     </button>
                 </div>
                     <div className="col-3">
                         <button
-                            className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                            className={themeButtonClass('lara-light-teal')}
                             onClick={() => _changeTheme('lara-light-teal', 'light')}
                             style={{
                                 background: 'linear-gradient(to right, #FFD700 50%, white 50%)'
                             }}
                         >
-                            <i className="pi pi-palette" style={{ color: 'black', fontSize: '1rem' }}></i>
+                            <i className="pi pi-sun" style={{ color: 'black', fontSize: '1rem' }}></i>
                         </button>
                     </div>
                     </div>
                 </div>
 
-                {/* Sección de temas oscuros */}
                 <div className="col-12 mb-2">
                     <div className="grid">
                    <div className="col-3">
                         <button
-                            className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                            className={themeButtonClass('lara-dark-indigo')}
                             onClick={() => _changeTheme('lara-dark-indigo', 'dark')}
                             style={{ background: 'linear-gradient(to right, #3A3A8E 50%, black 50%)' }}
                         >
-                            <i className="pi pi-palette" style={{ color: 'white', fontSize: '1rem' }}></i>
+                            <i className="pi pi-moon" style={{ color: 'white', fontSize: '1rem' }}></i>
                         </button>
                     </div>
 
                     <div className="col-3">
                         <button
-                            className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                            className={themeButtonClass('lara-dark-blue')}
                             onClick={() => _changeTheme('lara-dark-blue', 'dark')}
                             style={{ background: 'linear-gradient(to right, #285C9A 50%, black 50%)' }}
                         >
-                            <i className="pi pi-palette" style={{ color: 'white', fontSize: '1rem' }}></i>
+                            <i className="pi pi-moon" style={{ color: 'white', fontSize: '1rem' }}></i>
                         </button>
                     </div>
 
                     <div className="col-3">
                         <button
-                            className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                            className={themeButtonClass('lara-dark-purple')}
                             onClick={() => _changeTheme('lara-dark-purple', 'dark')}
                             style={{ background: 'linear-gradient(to right, #662D91 50%, black 50%)' }}
                         >
-                            <i className="pi pi-palette" style={{ color: 'white', fontSize: '1rem' }}></i>
+                            <i className="pi pi-moon" style={{ color: 'white', fontSize: '1rem' }}></i>
                         </button>
                     </div>
 
                     <div className="col-3">
                         <button
-                            className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                            className={themeButtonClass('lara-dark-teal')}
                             onClick={() => _changeTheme('lara-dark-teal', 'dark')}
                             style={{ background: 'linear-gradient(to right, #12857C 50%, black 50%)' }}
                         >
-                            <i className="pi pi-palette" style={{ color: 'white', fontSize: '1rem' }}></i>
+                            <i className="pi pi-moon" style={{ color: 'white', fontSize: '1rem' }}></i>
                         </button>
                     </div>
 
-                    {/* Temas adicionales: Soho y Viva */}
                     <div className="col-3 mt-2">
                         <button
-                        className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                        className={themeButtonClass('soho-light')}
                         onClick={() => _changeTheme('soho-light', 'light')}
                         style={{ backgroundColor: '#7254f3' }}
                         >
-                        <i className="pi pi-palette" style={{ color: 'white', fontSize: '1rem' }}></i>
+                        <i className="pi pi-desktop" style={{ color: 'white', fontSize: '1rem' }}></i>
                         </button>
                     </div>
                     <div className="col-3 mt-2">
                         <button
-                        className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                        className={themeButtonClass('soho-dark')}
                         onClick={() => _changeTheme('soho-dark', 'dark')}
                         style={{ backgroundColor: '#daa004' }}
                         >
-                        <i className="pi pi-palette" style={{ color: 'white', fontSize: '1rem' }}></i>
+                        <i className="pi pi-desktop" style={{ color: 'white', fontSize: '1rem' }}></i>
                         </button>
                     </div>
                     <div className="col-3 mt-2">
                         <button
-                        className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                        className={themeButtonClass('viva-light')}
                         onClick={() => _changeTheme('viva-light', 'light')}
                         style={{ backgroundColor: '#002dc1' }}
                         >
-                        <i className="pi pi-palette" style={{ color: 'white', fontSize: '1rem' }}></i>
+                        <i className="pi pi-star" style={{ color: 'white', fontSize: '1rem' }}></i>
                         </button>
                     </div>
                     <div className="col-3 mt-2">
                         <button
                             id="theme-viva-dark-button"
-                            className="p-link w-2rem h-2rem flex justify-content-center align-items-center border-round shadow-2"
+                            className={themeButtonClass('viva-dark')}
                             onClick={() => _changeTheme('viva-dark', 'dark')}
                             style={{ backgroundColor: '#05b423' }}
                         >
-                            <i className="pi pi-palette" style={{ color: 'white', fontSize: '1rem' }}></i>
+                            <i className="pi pi-star" style={{ color: 'white', fontSize: '1rem' }}></i>
                         </button>
                     </div>
                     </div>
                 </div>
                 </div>
-                <h6>Bootstrap</h6>
+                <h6 className="flex align-items-center gap-2"><i className="pi pi-box"></i><span>Bootstrap</span></h6>
                 <div className="grid">
                     <div className="col-3">
                         <button className="p-link w-2rem h-2rem" onClick={() => _changeTheme('bootstrap4-light-blue', 'light')}>
@@ -263,7 +264,7 @@ const AppConfig = (props: AppConfigProps) => {
                     </div>
                 </div>
 
-                <h6>Diseño de materiales</h6>
+                <h6 className="flex align-items-center gap-2"><i className="pi pi-th-large"></i><span>Diseño material</span></h6>
                 <div className="grid">
                     <div className="col-3">
                         <button className="p-link w-2rem h-2rem" onClick={() => _changeTheme('md-light-indigo', 'light')}>
@@ -287,7 +288,7 @@ const AppConfig = (props: AppConfigProps) => {
                     </div>
                 </div>
 
-                <h6>Diseño de materiales compacto</h6>
+                <h6 className="flex align-items-center gap-2"><i className="pi pi-th-large"></i><span>Material compacto</span></h6>
                 <div className="grid">
                     <div className="col-3">
                         <button className="p-link w-2rem h-2rem" onClick={() => _changeTheme('mdc-light-indigo', 'light')}>

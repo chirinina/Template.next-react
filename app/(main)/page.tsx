@@ -13,10 +13,10 @@ import { Demo } from '@/types';
 import { ChartData, ChartOptions } from 'chart.js';
 
 const lineData: ChartData = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
     datasets: [
         {
-            label: 'First Dataset',
+            label: 'Primer conjunto',
             data: [65, 59, 80, 81, 56, 55, 40],
             fill: false,
             backgroundColor: '#2f4860',
@@ -24,7 +24,7 @@ const lineData: ChartData = {
             tension: 0.4
         },
         {
-            label: 'Second Dataset',
+            label: 'Segundo conjunto',
             data: [28, 48, 40, 19, 86, 27, 90],
             fill: false,
             backgroundColor: '#00bb7e',
@@ -118,7 +118,7 @@ const Dashboard = () => {
     }, [layoutConfig.colorScheme]);
 
     const formatCurrency = (value: number) => {
-        return value?.toLocaleString('en-US', {
+        return value?.toLocaleString('es-BO', {
             style: 'currency',
             currency: 'USD'
         });
@@ -130,37 +130,37 @@ const Dashboard = () => {
                 <div className="card mb-0">
                     <div className="flex justify-content-between mb-3">
                         <div>
-                            <span className="block text-500 font-medium mb-3">Orders</span>
+                            <span className="block text-500 font-medium mb-3">Pedidos</span>
                             <div className="text-900 font-medium text-xl">152</div>
                         </div>
                         <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{ width: '2.5rem', height: '2.5rem' }}>
                             <i className="pi pi-shopping-cart text-blue-500 text-xl" />
                         </div>
                     </div>
-                    <span className="text-green-500 font-medium">24 new </span>
-                    <span className="text-500">since last visit</span>
+                    <span className="text-green-500 font-medium">24 nuevos </span>
+                    <span className="text-500">desde la última visita</span>
                 </div>
             </div>
             <div className="col-12 lg:col-6 xl:col-3">
                 <div className="card mb-0">
                     <div className="flex justify-content-between mb-3">
                         <div>
-                            <span className="block text-500 font-medium mb-3">Revenue</span>
+                            <span className="block text-500 font-medium mb-3">Ingresos</span>
                             <div className="text-900 font-medium text-xl">$2.100</div>
                         </div>
                         <div className="flex align-items-center justify-content-center bg-orange-100 border-round" style={{ width: '2.5rem', height: '2.5rem' }}>
                             <i className="pi pi-map-marker text-orange-500 text-xl" />
                         </div>
                     </div>
-                    <span className="text-green-500 font-medium">%52+ </span>
-                    <span className="text-500">since last week</span>
+                    <span className="text-green-500 font-medium">52%+ </span>
+                    <span className="text-500">desde la semana pasada</span>
                 </div>
             </div>
             <div className="col-12 lg:col-6 xl:col-3">
                 <div className="card mb-0">
                     <div className="flex justify-content-between mb-3">
                         <div>
-                            <span className="block text-500 font-medium mb-3">Customers</span>
+                            <span className="block text-500 font-medium mb-3">Clientes</span>
                             <div className="text-900 font-medium text-xl">28441</div>
                         </div>
                         <div className="flex align-items-center justify-content-center bg-cyan-100 border-round" style={{ width: '2.5rem', height: '2.5rem' }}>
@@ -168,34 +168,34 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <span className="text-green-500 font-medium">520 </span>
-                    <span className="text-500">newly registered</span>
+                    <span className="text-500">registrados recientemente</span>
                 </div>
             </div>
             <div className="col-12 lg:col-6 xl:col-3">
                 <div className="card mb-0">
                     <div className="flex justify-content-between mb-3">
                         <div>
-                            <span className="block text-500 font-medium mb-3">Comments</span>
-                            <div className="text-900 font-medium text-xl">152 Unread</div>
+                            <span className="block text-500 font-medium mb-3">Comentarios</span>
+                            <div className="text-900 font-medium text-xl">152 sin leer</div>
                         </div>
                         <div className="flex align-items-center justify-content-center bg-purple-100 border-round" style={{ width: '2.5rem', height: '2.5rem' }}>
                             <i className="pi pi-comment text-purple-500 text-xl" />
                         </div>
                     </div>
                     <span className="text-green-500 font-medium">85 </span>
-                    <span className="text-500">responded</span>
+                    <span className="text-500">respondidos</span>
                 </div>
             </div>
 
             <div className="col-12 xl:col-6">
                 <div className="card">
-                    <h5>Recent Sales</h5>
+                    <h5>Ventas recientes</h5>
                     <DataTable value={products} rows={5} paginator responsiveLayout="scroll">
-                        <Column header="Image" body={(data) => <img className="shadow-2" src={`/demo/images/product/${data.image}`} alt={data.image} width="50" />} />
-                        <Column field="name" header="Name" sortable style={{ width: '35%' }} />
-                        <Column field="price" header="Price" sortable style={{ width: '35%' }} body={(data) => formatCurrency(data.price)} />
+                        <Column header="Imagen" body={(data) => <img className="shadow-2" src={`/demo/images/product/${data.image}`} alt={data.image} width="50" />} />
+                        <Column field="name" header="Nombre" sortable style={{ width: '35%' }} />
+                        <Column field="price" header="Precio" sortable style={{ width: '35%' }} body={(data) => formatCurrency(data.price)} />
                         <Column
-                            header="View"
+                            header="Ver"
                             style={{ width: '15%' }}
                             body={() => (
                                 <>
@@ -207,15 +207,15 @@ const Dashboard = () => {
                 </div>
                 <div className="card">
                     <div className="flex justify-content-between align-items-center mb-5">
-                        <h5>Best Selling Products</h5>
+                        <h5>Productos más vendidos</h5>
                         <div>
                             <Button type="button" icon="pi pi-ellipsis-v" rounded text className="p-button-plain" onClick={(event) => menu1.current?.toggle(event)} />
                             <Menu
                                 ref={menu1}
                                 popup
                                 model={[
-                                    { label: 'Add New', icon: 'pi pi-fw pi-plus' },
-                                    { label: 'Remove', icon: 'pi pi-fw pi-minus' }
+                                    { label: 'Agregar', icon: 'pi pi-fw pi-plus' },
+                                    { label: 'Quitar', icon: 'pi pi-fw pi-minus' }
                                 ]}
                             />
                         </div>
@@ -224,7 +224,7 @@ const Dashboard = () => {
                         <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                             <div>
                                 <span className="text-900 font-medium mr-2 mb-1 md:mb-0">Space T-Shirt</span>
-                                <div className="mt-1 text-600">Clothing</div>
+                                <div className="mt-1 text-600">Ropa</div>
                             </div>
                             <div className="mt-2 md:mt-0 flex align-items-center">
                                 <div className="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" style={{ height: '8px' }}>
@@ -236,7 +236,7 @@ const Dashboard = () => {
                         <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                             <div>
                                 <span className="text-900 font-medium mr-2 mb-1 md:mb-0">Portal Sticker</span>
-                                <div className="mt-1 text-600">Accessories</div>
+                                <div className="mt-1 text-600">Accesorios</div>
                             </div>
                             <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                                 <div className="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" style={{ height: '8px' }}>
@@ -248,7 +248,7 @@ const Dashboard = () => {
                         <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                             <div>
                                 <span className="text-900 font-medium mr-2 mb-1 md:mb-0">Supernova Sticker</span>
-                                <div className="mt-1 text-600">Accessories</div>
+                                <div className="mt-1 text-600">Accesorios</div>
                             </div>
                             <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                                 <div className="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" style={{ height: '8px' }}>
@@ -260,7 +260,7 @@ const Dashboard = () => {
                         <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                             <div>
                                 <span className="text-900 font-medium mr-2 mb-1 md:mb-0">Wonders Notebook</span>
-                                <div className="mt-1 text-600">Office</div>
+                                <div className="mt-1 text-600">Oficina</div>
                             </div>
                             <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                                 <div className="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" style={{ height: '8px' }}>
@@ -272,7 +272,7 @@ const Dashboard = () => {
                         <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                             <div>
                                 <span className="text-900 font-medium mr-2 mb-1 md:mb-0">Mat Black Case</span>
-                                <div className="mt-1 text-600">Accessories</div>
+                                <div className="mt-1 text-600">Accesorios</div>
                             </div>
                             <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                                 <div className="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" style={{ height: '8px' }}>
@@ -284,7 +284,7 @@ const Dashboard = () => {
                         <li className="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
                             <div>
                                 <span className="text-900 font-medium mr-2 mb-1 md:mb-0">Robots T-Shirt</span>
-                                <div className="mt-1 text-600">Clothing</div>
+                                <div className="mt-1 text-600">Ropa</div>
                             </div>
                             <div className="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
                                 <div className="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" style={{ height: '8px' }}>
@@ -299,27 +299,27 @@ const Dashboard = () => {
 
             <div className="col-12 xl:col-6">
                 <div className="card">
-                    <h5>Sales Overview</h5>
+                    <h5>Resumen de ventas</h5>
                     <Chart type="line" data={lineData} options={lineOptions} />
                 </div>
 
                 <div className="card">
                     <div className="flex align-items-center justify-content-between mb-4">
-                        <h5>Notifications</h5>
+                        <h5>Notificaciones</h5>
                         <div>
                             <Button type="button" icon="pi pi-ellipsis-v" rounded text className="p-button-plain" onClick={(event) => menu2.current?.toggle(event)} />
                             <Menu
                                 ref={menu2}
                                 popup
                                 model={[
-                                    { label: 'Add New', icon: 'pi pi-fw pi-plus' },
-                                    { label: 'Remove', icon: 'pi pi-fw pi-minus' }
+                                    { label: 'Agregar', icon: 'pi pi-fw pi-plus' },
+                                    { label: 'Quitar', icon: 'pi pi-fw pi-minus' }
                                 ]}
                             />
                         </div>
                     </div>
 
-                    <span className="block text-600 font-medium mb-3">TODAY</span>
+                    <span className="block text-600 font-medium mb-3">HOY</span>
                     <ul className="p-0 mx-0 mt-0 mb-4 list-none">
                         <li className="flex align-items-center py-2 border-bottom-1 surface-border">
                             <div className="w-3rem h-3rem flex align-items-center justify-content-center bg-blue-100 border-circle mr-3 flex-shrink-0">
@@ -329,7 +329,7 @@ const Dashboard = () => {
                                 Richard Jones
                                 <span className="text-700">
                                     {' '}
-                                    has purchased a blue t-shirt for <span className="text-blue-500">79$</span>
+                                    compró una camiseta azul por <span className="text-blue-500">79 $</span>
                                 </span>
                             </span>
                         </li>
@@ -338,12 +338,12 @@ const Dashboard = () => {
                                 <i className="pi pi-download text-xl text-orange-500" />
                             </div>
                             <span className="text-700 line-height-3">
-                                Your request for withdrawal of <span className="text-blue-500 font-medium">2500$</span> has been initiated.
+                                Tu solicitud de retiro por <span className="text-blue-500 font-medium">2500 $</span> fue iniciada.
                             </span>
                         </li>
                     </ul>
 
-                    <span className="block text-600 font-medium mb-3">YESTERDAY</span>
+                    <span className="block text-600 font-medium mb-3">AYER</span>
                     <ul className="p-0 m-0 list-none">
                         <li className="flex align-items-center py-2 border-bottom-1 surface-border">
                             <div className="w-3rem h-3rem flex align-items-center justify-content-center bg-blue-100 border-circle mr-3 flex-shrink-0">
@@ -353,7 +353,7 @@ const Dashboard = () => {
                                 Keyser Wick
                                 <span className="text-700">
                                     {' '}
-                                    has purchased a black jacket for <span className="text-blue-500">59$</span>
+                                    compró una chaqueta negra por <span className="text-blue-500">59 $</span>
                                 </span>
                             </span>
                         </li>
@@ -363,7 +363,7 @@ const Dashboard = () => {
                             </div>
                             <span className="text-900 line-height-3">
                                 Jane Davis
-                                <span className="text-700"> has posted a new questions about your product.</span>
+                                <span className="text-700"> publicó una nueva pregunta sobre tu producto.</span>
                             </span>
                         </li>
                     </ul>
@@ -376,12 +376,12 @@ const Dashboard = () => {
                     }}
                 >
                     <div>
-                        <div className="text-blue-100 font-medium text-xl mt-2 mb-3">TAKE THE NEXT STEP</div>
-                        <div className="text-white font-medium text-5xl">Try PrimeBlocks</div>
+                        <div className="text-blue-100 font-medium text-xl mt-2 mb-3">DA EL SIGUIENTE PASO</div>
+                        <div className="text-white font-medium text-5xl">Prueba PrimeBlocks</div>
                     </div>
                     <div className="mt-4 mr-auto md:mt-0 md:mr-0">
                         <Link href="https://blocks.primereact.org" className="p-button font-bold px-5 py-3 p-button-warning p-button-rounded p-button-raised">
-                            Get Started
+                            Comenzar
                         </Link>
                     </div>
                 </div>

@@ -23,7 +23,7 @@ const ErrorPage = () => {
                             <i className="pi pi-fw pi-exclamation-circle text-2xl text-white"></i>
                         </div>
                         <h1 className="text-900 font-bold text-5xl mb-2">Se produjo un error</h1>
-                        <div className="text-600 mb-5">Algo salio mal.</div>
+                        <div className="text-600 mb-5">Algo salió mal.</div>
                         <img src="/demo/images/error/asset-error.svg" alt="Error" className="mb-5" width="80%" />
                         <Button icon="pi pi-arrow-left" label="Ir al Panel de Control" text onClick={() => router.push('/')} />
                     </div>

@@ -18,6 +18,18 @@ import { ProductService } from '../../../../demo/service/ProductService';
 import { Demo } from '@/types';
 
 const Crud = () => {
+    const categoryLabels: Record<string, string> = {
+        Accessories: 'Accesorios',
+        Clothing: 'Ropa',
+        Electronics: 'Electrónica',
+        Fitness: 'Fitness'
+    };
+    const inventoryStatusLabels: Record<string, string> = {
+        INSTOCK: 'En stock',
+        LOWSTOCK: 'Stock bajo',
+        OUTOFSTOCK: 'Sin stock'
+    };
+
     let emptyProduct: Demo.Product = {
         id: '',
         name: '',
@@ -46,7 +58,7 @@ const Crud = () => {
     }, []);
 
     const formatCurrency = (value: number) => {
-        return value.toLocaleString('en-US', {
+        return value.toLocaleString('es-BO', {
             style: 'currency',
             currency: 'USD'
         });
@@ -84,7 +96,7 @@ const Crud = () => {
                 toast.current?.show({
                     severity: 'success',
                     summary: 'Exitoso',
-                    detail: 'Product Updated',
+                    detail: 'Producto actualizado',
                     life: 3000
                 });
             } else {
@@ -94,7 +106,7 @@ const Crud = () => {
                 toast.current?.show({
                     severity: 'success',
                     summary: 'Exitoso',
-                    detail: 'Product Created',
+                    detail: 'Producto creado',
                     life: 3000
                 });
             }
@@ -123,7 +135,7 @@ const Crud = () => {
         toast.current?.show({
             severity: 'success',
             summary: 'Exitoso',
-            detail: 'Product Deleted',
+            detail: 'Producto eliminado',
             life: 3000
         });
     };
@@ -206,8 +218,8 @@ const Crud = () => {
     const rightToolbarTemplate = () => {
         return (
             <React.Fragment>
-                <FileUpload mode="basic" accept="image/*" maxFileSize={1000000} chooseLabel="Import" className="mr-2 inline-block" />
-                <Button label="Export" icon="pi pi-upload" severity="help" onClick={exportCSV} />
+                <FileUpload mode="basic" accept="image/*" maxFileSize={1000000} chooseLabel="Importar" className="mr-2 inline-block" />
+                <Button label="Exportar" icon="pi pi-upload" severity="help" onClick={exportCSV} />
             </React.Fragment>
         );
     };
@@ -215,7 +227,7 @@ const Crud = () => {
     const codeBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <span className="p-column-title">Code</span>
+                <span className="p-column-title">Código</span>
                 {rowData.code}
             </>
         );
@@ -224,7 +236,7 @@ const Crud = () => {
     const nameBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <span className="p-column-title">Name</span>
+                <span className="p-column-title">Nombre</span>
                 {rowData.name}
             </>
         );
@@ -233,7 +245,7 @@ const Crud = () => {
     const imageBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <span className="p-column-title">Image</span>
+                <span className="p-column-title">Imagen</span>
                 <img src={`/demo/images/product/${rowData.image}`} alt={rowData.image} className="shadow-2 border-round" width="64" />
             </>
         );
@@ -242,7 +254,7 @@ const Crud = () => {
     const priceBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <span className="p-column-title">Price</span>
+                <span className="p-column-title">Precio</span>
                 {formatCurrency(rowData.price as number)}
             </>
         );
@@ -251,8 +263,8 @@ const Crud = () => {
     const categoryBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <span className="p-column-title">Category</span>
-                {rowData.category}
+                <span className="p-column-title">Categoría</span>
+                {categoryLabels[rowData.category || ''] || rowData.category}
             </>
         );
     };
@@ -260,7 +272,7 @@ const Crud = () => {
     const ratingBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <span className="p-column-title">Reviews</span>
+                <span className="p-column-title">Reseñas</span>
                 <Rating value={rowData.rating} readOnly cancel={false} />
             </>
         );
@@ -269,8 +281,8 @@ const Crud = () => {
     const statusBodyTemplate = (rowData: Demo.Product) => {
         return (
             <>
-                <span className="p-column-title">Status</span>
-                <span className={`product-badge status-${rowData.inventoryStatus?.toLowerCase()}`}>{rowData.inventoryStatus}</span>
+                <span className="p-column-title">Estado</span>
+                <span className={`product-badge status-${rowData.inventoryStatus?.toLowerCase()}`}>{inventoryStatusLabels[rowData.inventoryStatus || ''] || rowData.inventoryStatus}</span>
             </>
         );
     };
@@ -286,10 +298,10 @@ const Crud = () => {
 
     const header = (
         <div className="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-            <h5 className="m-0">Manage Products</h5>
+            <h5 className="m-0">Gestionar productos</h5>
             <span className="block mt-2 md:mt-0 p-input-icon-left">
                 <i className="pi pi-search" />
-                <InputText type="search" onInput={(e) => setGlobalFilter(e.currentTarget.value)} placeholder="Search..." />
+                <InputText type="search" onInput={(e) => setGlobalFilter(e.currentTarget.value)} placeholder="Buscar..." />
             </span>
         </div>
     );
@@ -297,13 +309,13 @@ const Crud = () => {
     const deleteProductDialogFooter = (
         <>
             <Button label="No" icon="pi pi-times" text onClick={hideDeleteProductDialog} />
-            <Button label="Yes" icon="pi pi-check" text onClick={deleteProduct} />
+            <Button label="Sí" icon="pi pi-check" text onClick={deleteProduct} />
         </>
     );
     const deleteProductsDialogFooter = (
         <>
             <Button label="No" icon="pi pi-times" text onClick={hideDeleteProductsDialog} />
-            <Button label="Yes" icon="pi pi-check" text onClick={deleteSelectedProducts} />
+            <Button label="Sí" icon="pi pi-check" text onClick={deleteSelectedProducts} />
         </>
     );
 
@@ -313,7 +325,6 @@ const Crud = () => {
                 <div className="card">
                     <Toast ref={toast} />
 
-                    {/* VISTA DE LISTA (Se oculta si productDialog es true) */}
                     {!productDialog && (
                         <>
                             <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
@@ -329,36 +340,35 @@ const Crud = () => {
                                 rowsPerPageOptions={[5, 10, 25]}
                                 className="datatable-responsive"
                                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-                                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
+                                currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} productos"
                                 globalFilter={globalFilter}
-                                emptyMessage="No products found."
+                                emptyMessage="No se encontraron productos."
                                 header={header}
                                 responsiveLayout="scroll"
                             >
                                 <Column selectionMode="multiple" headerStyle={{ width: '4rem' }}></Column>
-                                <Column field="code" header="Code" sortable body={codeBodyTemplate} headerStyle={{ minWidth: '15rem' }}></Column>
-                                <Column field="name" header="Name" sortable body={nameBodyTemplate} headerStyle={{ minWidth: '15rem' }}></Column>
-                                <Column header="Image" body={imageBodyTemplate}></Column>
-                                <Column field="price" header="Price" body={priceBodyTemplate} sortable></Column>
-                                <Column field="category" header="Category" sortable body={categoryBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
-                                <Column field="rating" header="Reviews" body={ratingBodyTemplate} sortable></Column>
-                                <Column field="inventoryStatus" header="Status" body={statusBodyTemplate} sortable headerStyle={{ minWidth: '10rem' }}></Column>
+                                <Column field="code" header="Código" sortable body={codeBodyTemplate} headerStyle={{ minWidth: '15rem' }}></Column>
+                                <Column field="name" header="Nombre" sortable body={nameBodyTemplate} headerStyle={{ minWidth: '15rem' }}></Column>
+                                <Column header="Imagen" body={imageBodyTemplate}></Column>
+                                <Column field="price" header="Precio" body={priceBodyTemplate} sortable></Column>
+                                <Column field="category" header="Categoría" sortable body={categoryBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
+                                <Column field="rating" header="Reseñas" body={ratingBodyTemplate} sortable></Column>
+                                <Column field="inventoryStatus" header="Estado" body={statusBodyTemplate} sortable headerStyle={{ minWidth: '10rem' }}></Column>
                                 <Column body={actionBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
                             </DataTable>
                         </>
                     )}
 
-                    {/* VISTA DE FORMULARIO (Se muestra solo cuando productDialog es true) */}
                     {productDialog && (
                         <div className="p-4 border-round shadow-1 surface-card mt-2">
                             <div className="flex align-items-center justify-content-between mb-5">
                                 <div className="flex align-items-center gap-3">
                                     <Button icon="pi pi-arrow-left" rounded text severity="secondary" onClick={hideDialog} />
-                                    <h2 className="text-2xl font-bold m-0">{product.id ? 'Edit Product' : 'New Product'}</h2>
+                                    <h2 className="text-2xl font-bold m-0">{product.id ? 'Editar producto' : 'Nuevo producto'}</h2>
                                 </div>
                                 <div className="flex gap-2">
-                                    <Button label="Cancel" icon="pi pi-times" outlined severity="danger" onClick={hideDialog} />
-                                    <Button label="Save Product" icon="pi pi-check" severity="success" onClick={saveProduct} />
+                                    <Button label="Cancelar" icon="pi pi-times" outlined severity="danger" onClick={hideDialog} />
+                                    <Button label="Guardar producto" icon="pi pi-check" severity="success" onClick={saveProduct} />
                                 </div>
                             </div>
 
@@ -371,14 +381,14 @@ const Crud = () => {
                                             className="shadow-2 border-round mb-3"
                                             style={{ width: '100%', maxWidth: '250px' }}
                                         />
-                                        <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" maxFileSize={1000000} chooseLabel="Change Image" className="w-full" />
+                                        <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" maxFileSize={1000000} chooseLabel="Cambiar imagen" className="w-full" />
                                     </div>
                                 </div>
 
                                 <div className="col-12 lg:col-8">
                                     <div className="grid">
                                         <div className="field col-12">
-                                            <label htmlFor="name" className="font-bold">Name</label>
+                                            <label htmlFor="name" className="font-bold">Nombre</label>
                                             <InputText
                                                 id="name"
                                                 value={product.name}
@@ -387,31 +397,31 @@ const Crud = () => {
                                                 autoFocus
                                                 className={classNames({ 'p-invalid': submitted && !product.name })}
                                             />
-                                            {submitted && !product.name && <small className="p-error">Name is required.</small>}
+                                            {submitted && !product.name && <small className="p-error">El nombre es obligatorio.</small>}
                                         </div>
                                         <div className="field col-12">
-                                            <label htmlFor="description" className="font-bold">Description</label>
+                                            <label htmlFor="description" className="font-bold">Descripción</label>
                                             <InputTextarea id="description" value={product.description} onChange={(e) => onInputChange(e, 'description')} required rows={4} />
                                         </div>
 
                                         <div className="field col-12">
-                                            <label className="font-bold mb-3">Category</label>
+                                            <label className="font-bold mb-3">Categoría</label>
                                             <div className="formgrid grid">
-                                                {['Accessories', 'Clothing', 'Electronics', 'Fitness'].map((cat) => (
-                                                    <div key={cat} className="field-radiobutton col-6 md:col-3">
-                                                        <RadioButton inputId={cat} name="category" value={cat} onChange={onCategoryChange} checked={product.category === cat} />
-                                                        <label htmlFor={cat}>{cat}</label>
+                                                {Object.entries(categoryLabels).map(([value, label]) => (
+                                                    <div key={value} className="field-radiobutton col-6 md:col-3">
+                                                        <RadioButton inputId={value} name="category" value={value} onChange={onCategoryChange} checked={product.category === value} />
+                                                        <label htmlFor={value}>{label}</label>
                                                     </div>
                                                 ))}
                                             </div>
                                         </div>
 
                                         <div className="field col-12 md:col-6">
-                                            <label htmlFor="price" className="font-bold">Price</label>
-                                            <InputNumber id="price" value={product.price} onValueChange={(e) => onInputNumberChange(e, 'price')} mode="currency" currency="USD" locale="en-US" />
+                                            <label htmlFor="price" className="font-bold">Precio</label>
+                                            <InputNumber id="price" value={product.price} onValueChange={(e) => onInputNumberChange(e, 'price')} mode="currency" currency="USD" locale="es-BO" />
                                         </div>
                                         <div className="field col-12 md:col-6">
-                                            <label htmlFor="quantity" className="font-bold">Quantity</label>
+                                            <label htmlFor="quantity" className="font-bold">Cantidad</label>
                                             <InputNumber id="quantity" value={product.quantity} onValueChange={(e) => onInputNumberChange(e, 'quantity')} />
                                         </div>
                                     </div>
@@ -420,22 +430,21 @@ const Crud = () => {
                         </div>
                     )}
 
-                    {/* MODALES DE CONFIRMACIÓN (Se mantienen para seguridad) */}
-                    <Dialog visible={deleteProductDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteProductDialogFooter} onHide={hideDeleteProductDialog}>
+                    <Dialog visible={deleteProductDialog} style={{ width: '450px' }} header="Confirmar" modal footer={deleteProductDialogFooter} onHide={hideDeleteProductDialog}>
                         <div className="flex align-items-center justify-content-center">
                             <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
                             {product && (
                                 <span>
-                                    Are you sure you want to delete <b>{product.name}</b>?
+                                    ¿Seguro que quieres eliminar <b>{product.name}</b>?
                                 </span>
                             )}
                         </div>
                     </Dialog>
 
-                    <Dialog visible={deleteProductsDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteProductsDialogFooter} onHide={hideDeleteProductsDialog}>
+                    <Dialog visible={deleteProductsDialog} style={{ width: '450px' }} header="Confirmar" modal footer={deleteProductsDialogFooter} onHide={hideDeleteProductsDialog}>
                         <div className="flex align-items-center justify-content-center">
                             <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
-                            {product && <span>Are you sure you want to delete the selected products?</span>}
+                            {product && <span>¿Seguro que quieres eliminar los productos seleccionados?</span>}
                         </div>
                     </Dialog>
                 </div>

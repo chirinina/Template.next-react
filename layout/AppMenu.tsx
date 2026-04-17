@@ -1,78 +1,74 @@
 /* eslint-disable @next/next/no-img-element */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import AppMenuitem from './AppMenuitem';
-import { LayoutContext } from './context/layoutcontext';
 import { MenuProvider } from './context/menucontext';
-import Link from 'next/link';
 import { AppMenuItem } from '@/types';
 
 const AppMenu = () => {
-    const { layoutConfig } = useContext(LayoutContext);
-
     const model: AppMenuItem[] = [
         {
             label: 'Inicio',
-            items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
+            items: [{ label: 'Panel', icon: 'pi pi-fw pi-home', to: '/' }]
         },
         {
-            label: 'Administracion',
+            label: 'Administración',
             items: [
-                { label: 'Registro', icon: 'pi pi-fw pi-send', to: '/pages/crud'},
+                { label: 'Registro', icon: 'pi pi-fw pi-send', to: '/pages/crud' }
             ]
         },
         {
-            label: 'UI Components',
+            label: 'Componentes UI',
             items: [
-                { label: 'Crud', icon: 'pi pi-fw pi-pencil', to: '/pages/crud'},
-                { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
-                { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
-                { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/uikit/floatlabel' },
-                { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/uikit/invalidstate' },
-                { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
-                { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
-                { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
-                { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/uikit/tree' },
-                { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/uikit/panel' },
+                { label: 'CRUD', icon: 'pi pi-fw pi-pencil', to: '/pages/crud' },
+                { label: 'Diseño de formularios', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
+                { label: 'Entradas', icon: 'pi pi-fw pi-check-square', to: '/uikit/input' },
+                { label: 'Etiqueta flotante', icon: 'pi pi-fw pi-bookmark', to: '/uikit/floatlabel' },
+                { label: 'Estado inválido', icon: 'pi pi-fw pi-exclamation-circle', to: '/uikit/invalidstate' },
+                { label: 'Botones', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
+                { label: 'Tablas', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
+                { label: 'Listas', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
+                { label: 'Árbol', icon: 'pi pi-fw pi-share-alt', to: '/uikit/tree' },
+                { label: 'Paneles', icon: 'pi pi-fw pi-tablet', to: '/uikit/panel' },
                 { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/uikit/overlay' },
-                { label: 'Media', icon: 'pi pi-fw pi-image', to: '/uikit/media' },
-                { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu', preventExact: true },
-                { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
-                { label: 'File', icon: 'pi pi-fw pi-file', to: '/uikit/file' },
-                { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/charts' },
-                { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
+                { label: 'Multimedia', icon: 'pi pi-fw pi-image', to: '/uikit/media' },
+                { label: 'Menú', icon: 'pi pi-fw pi-bars', to: '/uikit/menu', preventExact: true },
+                { label: 'Mensajes', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
+                { label: 'Archivos', icon: 'pi pi-fw pi-file', to: '/uikit/file' },
+                { label: 'Gráficos', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/charts' },
+                { label: 'Varios', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
             ]
         },
         {
-            label: 'Prime Blocks',
+            label: 'Bloques Prime',
             items: [
-                { label: 'Free Blocks', icon: 'pi pi-fw pi-eye', to: '/blocks', badge: 'NEW' },
-                { label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: 'https://blocks.primereact.org', target: '_blank' }
+                { label: 'Bloques gratis', icon: 'pi pi-fw pi-eye', to: '/blocks', badge: 'NUEVO' },
+                { label: 'Todos los bloques', icon: 'pi pi-fw pi-globe', url: 'https://blocks.primereact.org', target: '_blank' }
             ]
         },
         {
-            label: 'Utilities',
+            label: 'Utilidades',
             items: [
                 { label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', to: '/utilities/icons' },
                 { label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: 'https://primeflex.org/', target: '_blank' }
             ]
         },
         {
-            label: 'Pages',
+            label: 'Páginas',
             icon: 'pi pi-fw pi-briefcase',
             to: '/pages',
             items: [
                 {
-                    label: 'Landing',
+                    label: 'Inicio público',
                     icon: 'pi pi-fw pi-globe',
                     to: '/landing'
                 },
                 {
-                    label: 'Auth',
+                    label: 'Autenticación',
                     icon: 'pi pi-fw pi-user',
                     items: [
                         {
-                            label: 'Login',
+                            label: 'Ingresar',
                             icon: 'pi pi-fw pi-sign-in',
                             to: '/auth/login'
                         },
@@ -82,7 +78,7 @@ const AppMenu = () => {
                             to: '/auth/error'
                         },
                         {
-                            label: 'Access Denied',
+                            label: 'Acceso denegado',
                             icon: 'pi pi-fw pi-lock',
                             to: '/auth/access'
                         }
@@ -90,71 +86,71 @@ const AppMenu = () => {
                 },
 
                 {
-                    label: 'Timeline',
+                    label: 'Línea de tiempo',
                     icon: 'pi pi-fw pi-calendar',
                     to: '/pages/timeline'
                 },
                 {
-                    label: 'Not Found',
+                    label: 'No encontrado',
                     icon: 'pi pi-fw pi-exclamation-circle',
                     to: '/pages/notfound'
                 },
                 {
-                    label: 'Empty',
+                    label: 'Vacío',
                     icon: 'pi pi-fw pi-circle-off',
                     to: '/pages/empty'
                 }
             ]
         },
         {
-            label: 'Hierarchy',
+            label: 'Jerarquía',
             items: [
                 {
-                    label: 'Submenu 1',
+                    label: 'Submenú 1',
                     icon: 'pi pi-fw pi-bookmark',
                     items: [
                         {
-                            label: 'Submenu 1.1',
+                            label: 'Submenú 1.1',
                             icon: 'pi pi-fw pi-bookmark',
                             items: [
-                                { label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-bookmark' },
-                                { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark' },
-                                { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark' }
+                                { label: 'Submenú 1.1.1', icon: 'pi pi-fw pi-bookmark' },
+                                { label: 'Submenú 1.1.2', icon: 'pi pi-fw pi-bookmark' },
+                                { label: 'Submenú 1.1.3', icon: 'pi pi-fw pi-bookmark' }
                             ]
                         },
                         {
-                            label: 'Submenu 1.2',
+                            label: 'Submenú 1.2',
                             icon: 'pi pi-fw pi-bookmark',
-                            items: [{ label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-bookmark' }]
+                            items: [{ label: 'Submenú 1.2.1', icon: 'pi pi-fw pi-bookmark' }]
                         }
                     ]
                 },
                 {
-                    label: 'Submenu 2',
+                    label: 'Submenú 2',
                     icon: 'pi pi-fw pi-bookmark',
                     items: [
                         {
-                            label: 'Submenu 2.1',
+                            label: 'Submenú 2.1',
                             icon: 'pi pi-fw pi-bookmark',
                             items: [
-                                { label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark' },
-                                { label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark' }
+                                { label: 'Submenú 2.1.1', icon: 'pi pi-fw pi-bookmark' },
+                                { label: 'Submenú 2.1.2', icon: 'pi pi-fw pi-bookmark' }
                             ]
                         },
                         {
-                            label: 'Submenu 2.2',
+                            label: 'Submenú 2.2',
                             icon: 'pi pi-fw pi-bookmark',
-                            items: [{ label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark' }]
+                            items: [{ label: 'Submenú 2.2.1', icon: 'pi pi-fw pi-bookmark' }]
                         }
                     ]
                 }
             ]
         },
         {
-            label: 'Get Started',
+            label: 'Empezar',
             items: [
                 {
-                    label: 'Documentation',
+                    label: 'Documentación',
                     icon: 'pi pi-fw pi-question',
                     to: '/documentation'
                 },
@@ -165,7 +161,7 @@ const AppMenu = () => {
                     target: '_blank'
                 },
                 {
-                    label: 'View Source',
+                    label: 'Ver código fuente',
                     icon: 'pi pi-fw pi-search',
                     url: 'https://github.com/primefaces/Diolay-react-next.js',
                     target: '_blank'

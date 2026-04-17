@@ -7,7 +7,7 @@ import { AppTopbarRef } from '@/types';
 import { LayoutContext } from './context/layoutcontext';
 
 const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
-    const { layoutConfig, layoutState, onMenuToggle, showProfileSidebar } = useContext(LayoutContext);
+    const { layoutState, onMenuToggle, showProfileSidebar } = useContext(LayoutContext);
     const menubuttonRef = useRef(null);
     const topbarmenuRef = useRef(null);
     const topbarmenubuttonRef = useRef(null);
@@ -18,23 +18,19 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
         topbarmenubutton: topbarmenubuttonRef.current
     }));
 
-    // Estilo personalizado para íconos más pequeños y hover
     const iconStyle: React.CSSProperties = {
-        fontSize: '1rem', // ícono más pequeño
+        fontSize: '1rem',
         transition: 'color 0.3s, background-color 0.3s',
         borderRadius: '50%',
-        padding: '0.25rem',
+        padding: '0.25rem'
     };
 
-    const buttonHoverClass = 'hover:text-primary hover:bg-primary/10'; // fondo primario con opacidad ligera
+    const buttonHoverClass = 'hover:text-primary hover:bg-primary/10';
 
     return (
         <div className="layout-topbar flex align-items-center justify-content-between px-3">
 
-            {/* IZQUIERDA: Logo + Hamburguesa */}
             <div className="flex align-items-center gap-3">
-
-                {/* Botón Hamburguesa más cerca del logo */}
                 <button
                     ref={menubuttonRef}
                     type="button"
@@ -51,7 +47,6 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
                 </span>
             </div>
 
-            {/* DERECHA: Menú */}
             <div className="flex align-items-center gap-2">
 
                 <button
@@ -78,7 +73,7 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
                         className={classNames('p-link layout-topbar-button', buttonHoverClass)}
                     >
                         <i className="pi pi-calendar" style={iconStyle}></i>
-                        <span>Calendar</span>
+                        <span>Agenda</span>
                     </button>
 
                     <button
@@ -86,7 +81,7 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
                         className={classNames('p-link layout-topbar-button', buttonHoverClass)}
                     >
                         <i className="pi pi-user" style={iconStyle}></i>
-                        <span>Profile</span>
+                        <span>Perfil</span>
                     </button>
 
                     <Link href="/documentation">
@@ -95,11 +90,10 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
                             className={classNames('p-link layout-topbar-button', buttonHoverClass)}
                         >
                             <i className="pi pi-cog" style={iconStyle}></i>
-                            <span>Settings</span>
+                            <span>Configuración</span>
                         </button>
                     </Link>
                 </div>
-
             </div>
         </div>
     );

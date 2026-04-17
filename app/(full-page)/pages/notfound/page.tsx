@@ -22,8 +22,8 @@ const NotFoundPage = () => {
                                 <i className="text-50 pi pi-fw pi-table text-2xl"></i>
                             </span>
                             <span className="ml-4 flex flex-column">
-                                <span className="text-900 lg:text-xl font-medium mb-1">FPreguntas Frecuentes</span>
-                                <span className="text-600 lg:text-lg">Ultricies mi quis hendrerit dolor.</span>
+                                <span className="text-900 lg:text-xl font-medium mb-1">Preguntas frecuentes</span>
+                                <span className="text-600 lg:text-lg">Encuentra respuestas rápidas a las dudas más comunes.</span>
                             </span>
                         </Link>
                         <Link href="/" className="w-full flex align-items-center py-5 border-300 border-bottom-1">
@@ -32,7 +32,7 @@ const NotFoundPage = () => {
                             </span>
                             <span className="ml-4 flex flex-column">
                                 <span className="text-900 lg:text-xl font-medium mb-1">Centro de Soluciones</span>
-                                <span className="text-600 lg:text-lg">Phasellus faucibus scelerisque eleifend.</span>
+                                <span className="text-600 lg:text-lg">Explora guías y recursos para resolver tu problema.</span>
                             </span>
                         </Link>
                         <Link href="/" className="w-full flex align-items-center mb-5 py-5 border-300 border-bottom-1">
@@ -41,7 +41,7 @@ const NotFoundPage = () => {
                             </span>
                             <span className="ml-4 flex flex-column">
                                 <span className="text-900 lg:text-xl font-medium mb-1">Permisos de Administrador</span>
-                                <span className="text-600 lg:text-lg">Accumsan in nisl nisi scelerisque</span>
+                                <span className="text-600 lg:text-lg">Verifica si tu cuenta necesita permisos adicionales.</span>
                             </span>
                         </Link>
                     </div>

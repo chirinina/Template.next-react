@@ -7,8 +7,8 @@ interface SimpleLayoutProps {
 }
 
 export const metadata: Metadata = {
-    title: 'PrimeReact Diolay',
-    description: 'The ultimate collection of design-agnostic, flexible and accessible React UI Components.'
+    title: 'Diolay',
+    description: 'Plataforma moderna para organizar procesos, clientes y operaciones con una experiencia clara y profesional.'
 };
 
 export default function SimpleLayout({ children }: SimpleLayoutProps) {
