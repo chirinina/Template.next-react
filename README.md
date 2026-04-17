@@ -16,7 +16,7 @@ Ejecuta el servidor de desarrollo:
 npm run dev
 ```
 <div align="center">
-  <img src="./public/image.png" width="550" />
+  <img src="./public/image.png" />
     <img src="./public/image1.png" width="210" />
   <img src="./public/image2.png" width="210" />
   <img src="./public/image3.png" width="210" />
