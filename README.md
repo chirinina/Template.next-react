@@ -11,7 +11,7 @@
 ##  Instalación y ejecución
 
 <p align="center">
-  <b>⚡ Sigue estos pasos para iniciar el proyecto</b>
+  <b> Sigue estos pasos para iniciar el proyecto</b>
 </p>
 
 ```bash
