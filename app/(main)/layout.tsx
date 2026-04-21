@@ -7,7 +7,7 @@ interface AppLayoutProps {
 
 export const metadata: Metadata = {
     title: 'Diolay',
-    description: 'The ultimate collection of design-agnostic, flexible and accessible React UI Components.',
+    description: 'Utima coleccion de componentes de React UI flexibles y accesibles.',
     robots: { index: false, follow: false },
     viewport: { initialScale: 1, width: 'device-width' },
     openGraph: {

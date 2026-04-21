@@ -11,7 +11,7 @@ import { LayoutContext } from './context/layoutcontext';
 
 type TopbarIconName = 'menu' | 'more' | 'calendar' | 'bell' | 'settings';
 
-const notifications = [ 
+const notifications = [
     {
         category: 'Proyecto',
         title: 'Entrega de informe',
@@ -127,55 +127,32 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
     return (
         <div className="layout-topbar flex align-items-center justify-content-between px-3">
             <div className="flex align-items-center gap-3">
-                <button
-                    ref={menubuttonRef}
-                    type="button"
-                    className={classNames('p-link layout-menu-button layout-topbar-button')}
-                    onClick={onMenuToggle}
-                    aria-label="Abrir menu"
-                >
+                <button ref={menubuttonRef} type="button" className={classNames('p-link layout-menu-button layout-topbar-button')} onClick={onMenuToggle} aria-label="Abrir menu">
                     <span className="layout-topbar-icon">
                         <TopbarIcon name="menu" />
                     </span>
                 </button>
                 <span className="font-bold text-lg">
-                    
                     <span className="text-primary">Dio</span>lay
                 </span>
             </div>
 
             <div className="flex align-items-center gap-2">
-                <button
-                    ref={topbarmenubuttonRef}
-                    type="button"
-                    className={classNames('p-link layout-topbar-menu-button layout-topbar-button')}
-                    onClick={showProfileSidebar}
-                    aria-label="Abrir accesos rapidos"
-                >
+                <button ref={topbarmenubuttonRef} type="button" className={classNames('p-link layout-topbar-menu-button layout-topbar-button')} onClick={showProfileSidebar} aria-label="Abrir accesos rapidos">
                     <span className="layout-topbar-icon">
                         <TopbarIcon name="more" />
                     </span>
                 </button>
 
                 <div ref={topbarmenuRef} className={classNames('layout-topbar-menu', { 'layout-topbar-menu-mobile-active': layoutState.profileSidebarVisible })}>
-                    <button
-                        type="button"
-                        className={classNames('p-link layout-topbar-button')}
-                        aria-label="Calendario"
-                        onClick={(event) => calendarOverlayRef.current?.toggle(event)}
-                    >
+                    <button type="button" className={classNames('p-link layout-topbar-button')} aria-label="Calendario" onClick={(event) => calendarOverlayRef.current?.toggle(event)}>
                         <span className="layout-topbar-icon">
                             <TopbarIcon name="calendar" />
                         </span>
                         <span className="layout-topbar-label">Calendario</span>
                     </button>
 
-                    <button
-                        type="button"
-                        className={classNames('p-link layout-topbar-button layout-topbar-notification')}
-                        aria-label="Notificaciones"
-                        onClick={(event) => notificationsOverlayRef.current?.toggle(event)}
-                    >
+                    <button type="button" className={classNames('p-link layout-topbar-button layout-topbar-notification')} aria-label="Notificaciones" onClick={(event) => notificationsOverlayRef.current?.toggle(event)}>
                         <span className="layout-topbar-icon">
                             <TopbarIcon name="bell" />
                         </span>
@@ -204,75 +181,58 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
             </div>
 
             <OverlayPanel ref={calendarOverlayRef} showCloseIcon className="layout-topbar-panel layout-topbar-calendar-panel">
-                <div className="layout-topbar-panel-header">
-                   
-                </div>
+                <div className="layout-topbar-panel-header"></div>
                 <div className="layout-topbar-calendar-shell">
                     <div className="layout-topbar-calendar-overview">
-                        <div className="layout-topbar-calendar-hero">
-                            
-                          
-                        </div>
-                        <div className="layout-topbar-calendar-meta">
-                        </div>
+                        <div className="layout-topbar-calendar-hero"></div>
+                        <div className="layout-topbar-calendar-meta"></div>
                     </div>
                     <Calendar inline value={selectedDate} onChange={(e) => setSelectedDate(e.value as Date | null)} />
                 </div>
             </OverlayPanel>
             <OverlayPanel ref={notificationsOverlayRef} showCloseIcon className="layout-topbar-panel layout-topbar-notifications-panel">
-                
                 <div className="layout-topbar-notification-hero">
                     <div className="flex flex-col rounded-lg shadow-lg ring-1 ring-blue-500 backdrop-blur-md">
-                    <small className="text-xs font-bold tracking-wide text-blue-700">
-                        Notificaciones
-                    </small>
+                        <small className="text-xs font-bold tracking-wide text-blue-700">Notificaciones</small>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
-                        <strong className="text-2xl font-bold text-gradient-900">03</strong>
-                        <span className="text-sm mt-1">Sin leer</span>
-                    </div>
+                        <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
+                            <strong className="text-2xl font-bold text-gradient-900">03</strong>
+                            <span className="text-sm mt-1">Sin leer</span>
+                        </div>
 
-                    <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
-                        <strong className="text-2xl font-bold text-blue-600">08</strong>
-                        <span className="text-sm  mt-1">Hoy</span>
-                    </div>
+                        <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
+                            <strong className="text-2xl font-bold text-blue-600">08</strong>
+                            <span className="text-sm  mt-1">Hoy</span>
+                        </div>
 
-                    <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
-                        <strong className="text-2xl font-bold text-red-600">02</strong>
-                        <span className="text-sm mt-1">Alta</span>
-                    </div>
+                        <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
+                            <strong className="text-2xl font-bold text-red-600">02</strong>
+                            <span className="text-sm mt-1">Alta</span>
+                        </div>
                     </div>
                 </div>
-               <div className="rounded-lg shadow-md ring-1 ring-gray-200">
-                <span className="px-4 py-2 rounded-full text-sm font-semibold text-indigo-700 bg-indigo-100 ring-1 ring-indigo-200 cursor-pointer">
-                    Todas
-                </span>
-                <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">
-                    Alta
-                </span>
-                <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">
-                    Sistema
-                </span>
+                <div className="rounded-lg shadow-md ring-1 ring-gray-200">
+                    <span className="px-4 py-2 rounded-full text-sm font-semibold text-indigo-700 bg-indigo-100 ring-1 ring-indigo-200 cursor-pointer">Todas</span>
+                    <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">Alta</span>
+                    <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">Sistema</span>
                 </div>
                 <div className="space-y-6 rounded-lg shadow-lg ring-1 ring-gray-200 max-w-xl mx-auto">
                     {notifications.map((notification) => (
                         <div key={notification.title} className="flex items-start space-x-4 p-4 rounded-xl transition duration-200">
-                        <div className="w-2.5 h-2.5 rounded-full bg-indigo-500 self-center" />
-                        <div className="flex-1">
-                            <small className="text-xs text-blue-400">{notification.priority}</small>
-                            <div className="flex justify-between items-center mb-3">
-                            <span className="text-sm font-semibold text-yellow-600">{notification.category}</span>
+                            <div className="w-2.5 h-2.5 rounded-full bg-indigo-500 self-center" />
+                            <div className="flex-1">
+                                <small className="text-xs text-blue-400">{notification.priority}</small>
+                                <div className="flex justify-between items-center mb-3">
+                                    <span className="text-sm font-semibold text-yellow-600">{notification.category}</span>
+                                </div>
+                                <strong className="text-xl font-medium">{notification.title}</strong>
+                                <p className="text-sm text-gray-500 font-semibold mt-1">{notification.detail}</p>
+                                <div className="flex justify-between items-center mt-4"></div>
                             </div>
-                            <strong className="text-xl font-medium">{notification.title}</strong>
-                            <p className="text-sm text-gray-500 font-semibold mt-1">{notification.detail}</p>
-                            <div className="flex justify-between items-center mt-4">
-                        
-                            </div>
-                        </div>
                         </div>
                     ))}
-                    </div>
+                </div>
             </OverlayPanel>
         </div>
     );

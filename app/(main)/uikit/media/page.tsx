@@ -89,7 +89,7 @@ const MediaDemo = () => {
 
             <div className="col-12">
                 <div className="card">
-                    <h5>Image</h5>
+                    <h5>Imagen</h5>
                     <div className="flex justify-content-center">
                         <Image src={`/demo/images/galleria/galleria10.jpg`} alt="Image" width="250" preview />
                     </div>
@@ -98,7 +98,7 @@ const MediaDemo = () => {
 
             <div className="col-12">
                 <div className="card">
-                    <h5>Galleria</h5>
+                    <h5>Galeria</h5>
                     <Galleria value={images} responsiveOptions={galleriaResponsiveOptions} numVisible={7} circular style={{ maxWidth: '800px', margin: 'auto' }} item={galleriaItemTemplate} thumbnail={galleriaThumbnailTemplate}></Galleria>
                 </div>
             </div>

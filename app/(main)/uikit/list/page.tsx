@@ -13,13 +13,13 @@ import type { Demo } from '@/types';
 
 const ListDemo = () => {
     const listValue = [
-        { name: 'San Francisco', code: 'SF' },
-        { name: 'London', code: 'LDN' },
+        { name: 'Sucre', code: 'SUC' },
+        { name: 'Bolivia', code: 'BOL' },
         { name: 'Paris', code: 'PRS' },
-        { name: 'Istanbul', code: 'IST' },
-        { name: 'Berlin', code: 'BRL' },
+        { name: 'Argentina', code: 'ARG' },
+        { name: 'España', code: 'ESP' },
         { name: 'Barcelona', code: 'BRC' },
-        { name: 'Rome', code: 'RM' }
+        { name: 'Santa Cruz - Bolivia', code: 'SCB' }
     ];
 
     const [picklistSourceValue, setPicklistSourceValue] = useState(listValue);
