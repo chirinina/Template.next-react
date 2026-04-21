@@ -13,11 +13,32 @@ type TopbarIconName = 'menu' | 'more' | 'calendar' | 'bell' | 'settings';
 
 const notifications = [ 
     {
-        category: 'Agenda',
-        title: 'Reunión de equipo',
-        detail: 'Hoy, 16:30',
-        time: 'Hoy',
+        category: 'Proyecto',
+        title: 'Entrega de informe',
+        detail: 'Mañana, 16:30',
+        time: 'Mañana',
         priority: 'Próximo'
+    },
+    {
+        category: 'Sistema',
+        title: 'Actualización disponible',
+        detail: 'Disponible para descargar',
+        time: 'Hace 2 horas',
+        priority: 'Media'
+    },
+    {
+        category: 'Seguridad',
+        title: 'Intento de inicio de sesión sospechoso',
+        detail: 'Desde una nueva ubicación',
+        time: 'Hace 30 minutos',
+        priority: 'Alta'
+    },
+    {
+        category: 'Redes Sociales',
+        title: 'Nuevo mensaje de Juan',
+        detail: '¿Quieres salir esta noche?',
+        time: 'Hace 10 minutos',
+        priority: 'Baja'
     }
 ];
 
@@ -118,6 +139,7 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
                     </span>
                 </button>
                 <span className="font-bold text-lg">
+                    
                     <span className="text-primary">Dio</span>lay
                 </span>
             </div>
@@ -197,59 +219,60 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
                     <Calendar inline value={selectedDate} onChange={(e) => setSelectedDate(e.value as Date | null)} />
                 </div>
             </OverlayPanel>
-
             <OverlayPanel ref={notificationsOverlayRef} showCloseIcon className="layout-topbar-panel layout-topbar-notifications-panel">
                 
                 <div className="layout-topbar-notification-hero">
-                    <div className="layout-topbar-notification-hero-copy">
-                        <small>Notifcaciones</small>
-                        
-                        <p>Solo lo importante, en orden y sin ruido.</p>
+                    <div className="flex flex-col rounded-lg shadow-lg ring-1 ring-blue-500 backdrop-blur-md">
+                    <small className="text-xs font-bold tracking-wide text-blue-700">
+                        Notificaciones
+                    </small>
                     </div>
-                    <div className="layout-topbar-notification-summary">
-                        <div className="layout-topbar-summary-card">
-                            <strong>03</strong>
-                            <span>Sin leer</span>
-                        </div>
-                        <div className="layout-topbar-summary-card">
-                            <strong>08</strong>
-                            <span>Hoy</span>
-                        </div>
-                        <div className="layout-topbar-summary-card">
-                            <strong>02</strong>
-                            <span>Alta</span>
-                        </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
+                        <strong className="text-2xl font-bold text-gradient-900">03</strong>
+                        <span className="text-sm mt-1">Sin leer</span>
+                    </div>
+
+                    <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
+                        <strong className="text-2xl font-bold text-blue-600">08</strong>
+                        <span className="text-sm  mt-1">Hoy</span>
+                    </div>
+
+                    <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
+                        <strong className="text-2xl font-bold text-red-600">02</strong>
+                        <span className="text-sm mt-1">Alta</span>
+                    </div>
                     </div>
                 </div>
-                <div className="layout-topbar-filter-row">
-                    <span className="layout-topbar-filter is-active">Todas</span>
-                    <span className="layout-topbar-filter">Alta</span>
-                    <span className="layout-topbar-filter">Sistema</span>
+               <div className="rounded-lg shadow-md ring-1 ring-gray-200">
+                <span className="px-4 py-2 rounded-full text-sm font-semibold text-indigo-700 bg-indigo-100 ring-1 ring-indigo-200 cursor-pointer">
+                    Todas
+                </span>
+                <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">
+                    Alta
+                </span>
+                <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">
+                    Sistema
+                </span>
                 </div>
-                <div className="layout-topbar-notification-list">
+                <div className="space-y-6 rounded-lg shadow-lg ring-1 ring-gray-200 max-w-xl mx-auto">
                     {notifications.map((notification) => (
-                        <div key={notification.title} className="layout-topbar-notification-item">
-                            <span className="layout-topbar-notification-dot" />
-                            <div className="layout-topbar-notification-content">
-                                <div className="layout-topbar-notification-meta">
-                                    <span>{notification.category}</span>
-                                    <small>{notification.priority}</small>
-                                </div>
-                                <strong>{notification.title}</strong>
-                                <p>{notification.detail}</p>
-                                <div className="layout-topbar-notification-footer">
-                                    <div className="layout-topbar-notification-tags">
-                                        <small>{notification.time}</small>
-                                        <span>{notification.priority}</span>
-                                    </div>
-                                    <button type="button" className="layout-topbar-inline-action">
-                                        Ver
-                                    </button>
-                                </div>
+                        <div key={notification.title} className="flex items-start space-x-4 p-4 rounded-xl transition duration-200">
+                        <div className="w-2.5 h-2.5 rounded-full bg-indigo-500 self-center" />
+                        <div className="flex-1">
+                            <small className="text-xs text-blue-400">{notification.priority}</small>
+                            <div className="flex justify-between items-center mb-3">
+                            <span className="text-sm font-semibold text-yellow-600">{notification.category}</span>
+                            </div>
+                            <strong className="text-xl font-medium">{notification.title}</strong>
+                            <p className="text-sm text-gray-500 font-semibold mt-1">{notification.detail}</p>
+                            <div className="flex justify-between items-center mt-4">
+                        
                             </div>
                         </div>
+                        </div>
                     ))}
-                </div>
+                    </div>
             </OverlayPanel>
         </div>
     );

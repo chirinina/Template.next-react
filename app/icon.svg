@@ -1,20 +1,18 @@
 <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="diolay-bg" x1="36" y1="24" x2="222" y2="236" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F7E4A8" />
-      <stop offset="0.55" stop-color="#9ED0FF" />
-      <stop offset="1" stop-color="#2563EB" />
+      <stop stop-color="#050404" />
+      <stop offset="0.55" stop-color="#041729" />
+      <stop offset="1" stop-color="#050921" />
     </linearGradient>
     <linearGradient id="diolay-stroke" x1="86" y1="66" x2="178" y2="184" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFFFF" />
-      <stop offset="1" stop-color="#E8F1FF" />
+      <stop stop-color="#ffffff" />
+      <stop offset="1" stop-color="#ffffff" />
     </linearGradient>
   </defs>
   <rect x="20" y="20" width="216" height="216" rx="56" fill="url(#diolay-bg)" />
-  <path d="M88 64H132C168.451 64 198 93.5492 198 130C198 166.451 168.451 196 132 196H88V64Z" fill="#0F172A" fill-opacity="0.14" />
-  <path
-    d="M84 60H128C164.451 60 194 89.5492 194 126C194 162.451 164.451 192 128 192H84V60ZM118 92H116V160H128C146.778 160 162 144.778 162 126C162 107.222 146.778 92 128 92H118Z"
-    fill="url(#diolay-stroke)"
-  />
+  
+  <polygon points="128,60 84,160 172,160" fill="white" />
+
   <circle cx="182" cy="78" r="10" fill="#FFFFFF" fill-opacity="0.7" />
 </svg>

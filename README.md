@@ -8,11 +8,17 @@
 </div>
 
 
-##  Inicio
+##  Instalación y ejecución
 
-Ejecuta el servidor de desarrollo:
+<p align="center">
+  <b>⚡ Sigue estos pasos para iniciar el proyecto</b>
+</p>
 
 ```bash
+# ▶ Instalar dependencias
+npm install
+
+# ▶ Ejecutar en desarrollo
 npm run dev
 ```
 <div align="center">
