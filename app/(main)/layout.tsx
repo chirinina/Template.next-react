@@ -1,4 +1,5 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
+import { Suspense } from 'react';
 import Layout from '../../layout/layout';
 
 interface AppLayoutProps {
@@ -9,7 +10,6 @@ export const metadata: Metadata = {
     title: 'Diolay',
     description: 'Utima coleccion de componentes de React UI flexibles y accesibles.',
     robots: { index: false, follow: false },
-    viewport: { initialScale: 1, width: 'device-width' },
     openGraph: {
         type: 'website',
         title: 'Diolay-react-next.js',
@@ -23,6 +23,15 @@ export const metadata: Metadata = {
     }
 };
 
+export const viewport: Viewport = {
+    initialScale: 1,
+    width: 'device-width'
+};
+
 export default function AppLayout({ children }: AppLayoutProps) {
-    return <Layout>{children}</Layout>;
+    return (
+        <Suspense fallback={null}>
+            <Layout>{children}</Layout>
+        </Suspense>
+    );
 }
