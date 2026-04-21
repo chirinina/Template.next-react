@@ -42,7 +42,7 @@ const AppMenu = () => {
         {
             label: 'Bloques Prime',
             items: [
-                { label: 'Bloques gratis', icon: 'pi pi-fw pi-eye', to: '/blocks', badge: 'NUEVO' },
+                { label: 'Bloques gratis', icon: 'pi pi-fw pi-eye', to: '/blocks', badge: 'NEW' },
                 { label: 'Todos los bloques', icon: 'pi pi-fw pi-globe', url: 'https://blocks.primereact.org', target: '_blank' }
             ]
         },

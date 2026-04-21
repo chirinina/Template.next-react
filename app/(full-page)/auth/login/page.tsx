@@ -56,7 +56,7 @@ const LoginPage = () => {
                                     ¿Olvidaste la contraseña?
                                 </a>
                             </div>
-                            <Button label="Entrar a Diolay" className="w-full p-3 text-xl" onClick={() => router.push('/')}></Button>
+                            <Button label="Acceder" className="w-full p-3 text-xl" onClick={() => router.push('/')}></Button>
                         </div>
                     </div>
                 </div>
