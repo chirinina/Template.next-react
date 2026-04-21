@@ -197,17 +197,17 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
-                            <strong className="text-2xl font-bold text-gradient-900">03</strong>
+                            <strong className="text-2xl font-bold text-gradient-900">03 </strong>
                             <span className="text-sm mt-1">Sin leer</span>
                         </div>
 
                         <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
-                            <strong className="text-2xl font-bold text-blue-600">08</strong>
+                            <strong className="text-2xl font-bold text-blue-600">08 </strong>
                             <span className="text-sm  mt-1">Hoy</span>
                         </div>
 
                         <div className="flex flex-col items-center justify-center rounded-xl  shadow-md border border-gray-100 p-4 hover:shadow-lg transition">
-                            <strong className="text-2xl font-bold text-red-600">02</strong>
+                            <strong className="text-2xl font-bold text-red-600">02 </strong>
                             <span className="text-sm mt-1">Alta</span>
                         </div>
                     </div>
@@ -215,7 +215,9 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
                 <div className="rounded-lg shadow-md ring-1 ring-gray-200">
                     <span className="px-4 py-2 rounded-full text-sm font-semibold text-indigo-700 bg-indigo-100 ring-1 ring-indigo-200 cursor-pointer">Todas</span>
                     <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">Alta</span>
-                    <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">Sistema</span>
+                    <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">Baja</span>
+                    <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">Medio</span>
+                    <span className="px-4 py-2 rounded-full text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-gray-800 cursor-pointer">En espera</span>
                 </div>
                 <div className="space-y-6 rounded-lg shadow-lg ring-1 ring-gray-200 max-w-xl mx-auto">
                     {notifications.map((notification) => (
